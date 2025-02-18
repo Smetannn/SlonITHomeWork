@@ -19,6 +19,24 @@ function sumNumbersObject(obj) {
         return 0;
     }
 }
+function nameNumbersObject(obj) {
+    if (!isEmpty(obj)) {
+        let arr = [];
+
+        for (let key in obj) {
+            if (typeof obj[key] === 'number') {
+                arr.push({ key: key, value: obj[key] });
+            }
+        }
+
+        arr.sort((a, b) => b.value - a.value);
+
+        return arr.map(item => item.key);
+    } else {
+        return [];
+    }
+}
+
 
 let obj = {
     name: 'Vasya',
@@ -27,3 +45,4 @@ let obj = {
     projects: 7,
 }
 console.log(sumNumbersObject(obj));
+console.log(nameNumbersObject(obj));
